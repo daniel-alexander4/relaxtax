@@ -3,16 +3,13 @@
 
 RelaxTax prepares a US federal income tax return on your own computer. It is written from the IRS forms and instructions themselves, and every number it uses traces back to a pinned IRS file and page.
 
-It is not ready to file with. No return it has made has been filed, and it covers one narrow case so far.
+The aim is to cover every IRS form an individual return can need, and to be ready for tax year 2027 returns, filed in 2028. It is not ready to file with yet.
 
-## What it does today
+## How it is built
 
-- Form 1040 for tax year 2025, for a single filer whose income is W-2 wages.
-- An interview built from the form's own calculation, so it asks only what the return needs and refuses a situation it does not handle rather than guessing.
-- W-2s can be typed in or added as a PDF, a scan or a photo. Photos and scans are read on your machine. Every value read from a document waits for you to confirm it.
-- It fills the official blank Form 1040 PDF, which it downloads from irs.gov only when you ask it to.
+RelaxTax downloads the official IRS forms and instructions and pins each file by its hash. Each line's calculation is written into a logic file that quotes the instruction text it comes from, page by page, and a check fails if a quote is not on its page. A second, independent transcription and three independent tax engines are compared against it. From that calculation RelaxTax works out the interview itself, so it asks only the questions the return needs and refuses a situation it does not handle rather than guessing. At the end it fills the official blank PDF.
 
-Oregon's Form OR-40 is planned after the federal forms.
+W-2s can be typed in or added as a PDF, a scan or a photo. Photos and scans are read on your machine, and every value read from a document waits for you to confirm it.
 
 ## How it keeps your return private
 
